@@ -1,0 +1,30 @@
+{
+  "name": "d3-streetball-mecca-react-renders-map-and-circles-medium",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "d3": "6.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-image-and-background-image-fade": "1.0.4",
+    "react-scripts": "3.4.3",
+    "react-spring": "8.0.27"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
