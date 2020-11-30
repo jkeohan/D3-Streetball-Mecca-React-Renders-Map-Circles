@@ -9,6 +9,10 @@
 /*   stroke-dasharray: 1; */
 }
 
+#boroughs-map {
+  height: 100%;
+}
+
 #map svg {
   background:#e1e8ea;
   height: calc(100% - 45px);

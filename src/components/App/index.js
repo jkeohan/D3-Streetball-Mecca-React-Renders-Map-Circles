@@ -4,7 +4,9 @@ import useDataApi from '../../hooks/useDataApi';
 import { formatData } from '../../services/format/formatters';
 // COMPONENTS
 // import Map from '../Map/index_d3'
-import Map from '../Map/index_react';
+// import Map from '../Map/index_react';
+// import Map from '../Map/index_react-mapbox-gl';
+import Map from '../Map/index_react-map-gl';
 import DropDown from '../DropDown'
 import Input from '../Input'
 
@@ -14,6 +16,7 @@ export default function App() {
     allParks: [],
     activeParks: [],
     activeBorough: 'all'
+
   });
 
   const [{ data, isLoading }] = useDataApi(
