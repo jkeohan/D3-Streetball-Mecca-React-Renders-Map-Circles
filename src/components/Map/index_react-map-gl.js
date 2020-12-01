@@ -1,20 +1,8 @@
-/* RESOURCES
-
-
-*/
-
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
+import * as d3 from 'd3';
 import ReactMapGL from 'react-map-gl';
 import Marker from './Markers';
-import * as d3 from 'd3';
-import useDataApi from '../../hooks/useDataApi';
-import Circles from './Circles';
-import { boroughLegend } from '../../services/legend';
 import './styles.css';
-const url =
-	'https://raw.githubusercontent.com/jkeohan/D3-Tutorials/3f3e4fb52aea827455fd4cc7c4893eb37f58e411/nyc.counties.json';
-
-// in render()
 
 const Map = (props) => {
 	console.log('Map - props', props);
@@ -58,9 +46,10 @@ const Map = (props) => {
 				mapboxApiAccessToken={"pk.eyJ1Ijoiamtlb2hhbiIsImEiOiJja2kyYXpxNTgwcXV1MzNuNWJ4YjdlN2N6In0.NVEwpt2bmK0FDjQFGk1UMA"}
 				// mapboxApiAccessToken={process.env.REACT_APP_MAPBOXACCESSTOKEN}
 				// mapStyle='mapbox://styles/mapbox/satellite-v9'
-				// mapStyle='mapbox://styles/mapbox/light-v9'
+				mapStyle='mapbox://styles/mapbox/light-v9'
 				// mapStyle='mapbox://styles/mapbox/dark-v9'
-				mapStyle='mapbox://styles/mapbox/streets-v9'
+				// mapStyle='mapbox://styles/mapbox/streets-v9'
+				// mapStyle='mapbox://styles/shihab-bounce/cjxvmqu4a6hzu1cocdsdfw9ln'
 				{...viewport}
 				onViewportChange={(nextViewport) => handleViewPort(nextViewport)}>
 				{markers()}

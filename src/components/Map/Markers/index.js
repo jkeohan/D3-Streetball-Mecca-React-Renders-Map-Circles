@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import { useSpring, animated } from 'react-spring';
 
-const Icon = ({ park, isShowing }) => {
+const Markers = ({ park, isShowing }) => {
 	const style = useSpring({
 		config: {
 			duration: 500,
@@ -20,7 +20,7 @@ const Icon = ({ park, isShowing }) => {
 	return (
         <Marker 
             longitude={parseFloat(park.lon)} latitude={parseFloat(park.lat)}>
-			<div style={{ ...styles, backgroundColor: park.color }}></div>
+			<animated.div style={{ ...styles, backgroundColor: park.color }} />
 		</Marker>
         // 	<Marker longitude={parseFloat(park.lon)} latitude={parseFloat(park.lat)}>
 		// 	<div style={{ ...style, backgroundColor: park.color }}></div>
@@ -28,4 +28,4 @@ const Icon = ({ park, isShowing }) => {
 	);
 };
 
-export default Icon;
+export default Markers;
