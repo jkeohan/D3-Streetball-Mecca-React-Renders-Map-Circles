@@ -13,8 +13,8 @@ const Icon = ({ park, isShowing }) => {
 	const styles = {
 		borderRadius: '50%',
 		backgroundColor: 'blue',
-		width: '10px',
-		height: '10px',
+		width: '7px',
+		height: '7px',
 	};
 
 	return (
