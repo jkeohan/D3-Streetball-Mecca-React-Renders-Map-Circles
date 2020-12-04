@@ -1,33 +1,70 @@
 import React, { useState, useEffect, useRef} from 'react';
 import * as d3 from 'd3';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {FlyToInterpolator}  from 'react-map-gl';
 import Marker from './Markers';
 import './styles.css';
+const transitionInterpolator= new FlyToInterpolator()
 
 const Map = (props) => {
-	console.log('Map - props', props);
-	const mapRef = useRef();
+	// console.log('Map - props', props);
+	const mapRef = useRef({});
 	const [viewport, setViewport] = useState({
 		width: 0,
 		height: 0,
 		latitude: 40.71502671373381,
 		longitude: -73.97480043712007,
 		zoom: 9.5,
+		transitionInterpolator,
+		transitionDuration: 4000
 	});
 
 	useEffect(() => {
 		const height = mapRef.current.clientHeight;
 		const width = mapRef.current.clientWidth;
+		let latitude;
+		let longitude;
+		let zoom;
+		switch(true) {
+			case props.activeParks.length === 1 : 
+			latitude = parseFloat(props.activeParks[0].lat)
+			longitude = parseFloat(props.activeParks[0].lon)
+			zoom = 19
+			break
+
+		  case props.activeBorough === 'all' : 
+			latitude = 40.71502671373381
+			longitude = -73.97480043712007
+			zoom = 9.5
+			break
+
+		  case props.activeBorough === 'Brooklyn' :
+			latitude = 40.652381475529
+			longitude = -73.95797122798811
+			zoom = 10.5
+		  break
+		 
+		 default :
+			latitude = 40.78102995542486
+			longitude = -73.9558647010203
+			zoom = 10.5
+		}
+
 		setViewport({
 			...viewport,
+			transitionInterpolator,
+			transitionDuration: 4000,
+			zoom,
+			latitude,
+			longitude,
 			width,
-			height,
+			height
 		});
+
 	}, [props.activeParks]);
 
 	const handleViewPort = (nextViewport) => {
 		console.log('handleViewPort', nextViewport);
-		setViewport(nextViewport);
+		setViewport(nextViewport)
 	};
 
 	const markers = () => {
@@ -44,11 +81,12 @@ const Map = (props) => {
 		<div id='boroughs-map' ref={mapRef}>
 			<ReactMapGL
 				mapboxApiAccessToken={"pk.eyJ1Ijoiamtlb2hhbiIsImEiOiJja2kyYXpxNTgwcXV1MzNuNWJ4YjdlN2N6In0.NVEwpt2bmK0FDjQFGk1UMA"}
+				
 				// mapboxApiAccessToken={process.env.REACT_APP_MAPBOXACCESSTOKEN}
 				// mapStyle='mapbox://styles/mapbox/satellite-v9'
-				mapStyle='mapbox://styles/mapbox/light-v9'
+				// mapStyle='mapbox://styles/mapbox/light-v9'
 				// mapStyle='mapbox://styles/mapbox/dark-v9'
-				// mapStyle='mapbox://styles/mapbox/streets-v9'
+				mapStyle='mapbox://styles/mapbox/streets-v9'
 				// mapStyle='mapbox://styles/shihab-bounce/cjxvmqu4a6hzu1cocdsdfw9ln'
 				{...viewport}
 				onViewportChange={(nextViewport) => handleViewPort(nextViewport)}>
