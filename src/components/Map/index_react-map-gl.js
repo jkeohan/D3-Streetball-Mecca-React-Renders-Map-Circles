@@ -85,8 +85,8 @@ const Map = (props) => {
 				// mapboxApiAccessToken={process.env.REACT_APP_MAPBOXACCESSTOKEN}
 				// mapStyle='mapbox://styles/mapbox/satellite-v9'
 				// mapStyle='mapbox://styles/mapbox/light-v9'
-				// mapStyle='mapbox://styles/mapbox/dark-v9'
-				mapStyle='mapbox://styles/mapbox/streets-v9'
+				mapStyle='mapbox://styles/mapbox/dark-v9'
+				// mapStyle='mapbox://styles/mapbox/streets-v9'
 				// mapStyle='mapbox://styles/shihab-bounce/cjxvmqu4a6hzu1cocdsdfw9ln'
 				{...viewport}
 				onViewportChange={(nextViewport) => handleViewPort(nextViewport)}>
