@@ -83,9 +83,9 @@ const Map = (props) => {
 				mapboxApiAccessToken={"pk.eyJ1Ijoiamtlb2hhbiIsImEiOiJja2kyYXpxNTgwcXV1MzNuNWJ4YjdlN2N6In0.NVEwpt2bmK0FDjQFGk1UMA"}
 				
 				// mapboxApiAccessToken={process.env.REACT_APP_MAPBOXACCESSTOKEN}
-				// mapStyle='mapbox://styles/mapbox/satellite-v9'
+				mapStyle='mapbox://styles/mapbox/satellite-v9'
 				// mapStyle='mapbox://styles/mapbox/light-v9'
-				mapStyle='mapbox://styles/mapbox/dark-v9'
+				// mapStyle='mapbox://styles/mapbox/dark-v9'
 				// mapStyle='mapbox://styles/mapbox/streets-v9'
 				// mapStyle='mapbox://styles/shihab-bounce/cjxvmqu4a6hzu1cocdsdfw9ln'
 				{...viewport}
